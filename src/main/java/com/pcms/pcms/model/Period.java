@@ -1,19 +1,17 @@
 package com.pcms.pcms.model;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalTime;
 
 /**
  * 授業のコマを扱うモデルクラス
+ * @author kobayashi2310
  */
-@Getter @Setter
+@Getter
 public class Period {
-    private byte period_number;
-    private LocalTime start_time, end_time;
-
-    public Period() {}
+    private final byte period_number;
+    private final LocalTime start_time, end_time;
 
     public Period(byte period_number, LocalTime startTime, LocalTime endTime) {
         this.period_number = period_number;

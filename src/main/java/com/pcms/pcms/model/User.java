@@ -5,23 +5,21 @@ import lombok.Setter;
 
 /**
  * Userのモデルクラス
+ * @author kobayashi
  * @version 1.0
  */
 @Getter
-@Setter
 public class User {
 
-    private int user_id;
-    private String number;
-    private String name;
-    private String email;
-    private String password;
-    private Role role;
-
-    /**
-     * 空のコンストラクタ（MyBatisで必要）
+    /*
+        @Getter、@Setterはprivate属性のゲッター・セッターを全部コンパイル時に追加してくれる機能
      */
-    public User() {}
+    private final int user_id;
+    @Setter private String number;
+    @Setter private String name;
+    @Setter private String email;
+    @Setter private String password;
+    @Setter private Role role;
 
     public User(int user_id, String number, String name, String email, String password, Role role) {
         this.user_id = user_id;
@@ -30,5 +28,23 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User() { this.user_id = -1; }
+
+    /**
+     * ユーザを識別するための列挙
+     */
+    public enum Role {
+        STUDENT, TEACHER;
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case STUDENT -> { return "student"; }
+                case TEACHER -> { return "teacher"; }
+            }
+            throw new IllegalArgumentException("Invalid role");
+        }
     }
 }
