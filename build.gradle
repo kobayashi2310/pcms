@@ -55,7 +55,7 @@ dependencies {
 }
 
 flyway {
-    url = 'jdbc:mysql://localhost:3306/pcmsdb'
+    url = 'jdbc:mysql://localhost:65534/pcmsdb'
     user = 'root'
     password = 'pass'
     driver = 'com.mysql.cj.jdbc.Driver'
