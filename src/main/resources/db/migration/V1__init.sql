@@ -50,3 +50,14 @@ CREATE TABLE IF NOT EXISTS returned (
     comment VARCHAR(500),
     FOREIGN KEY (reservation_id) REFERENCES reservation(reservation_id)
 );
+
+# CREATE TABLE IF NOT EXISTS notification (
+#     notification_id INT PRIMARY KEY AUTO_INCREMENT,
+#     receiver_id INT NOT NULL,
+#     sender_id INT, -- NULLの場合はシステム通知
+#     content TEXT NOT NULL,
+#     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+#     is_read BOOLEAN DEFAULT FALSE,
+#     FOREIGN KEY (receiver_id) REFERENCES user(user_id),
+#     FOREIGN KEY (sender_id) REFERENCES user(user_id)
+# );
